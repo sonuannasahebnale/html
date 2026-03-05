@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">⚡ Sonu</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <p class="hero-sub">👋 Hello, I'm</p>
+      <h1>Sonu Nale</h1>
+      <p class="hero-desc">Developer · Designer · Creator</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-primary">Hire Me</a>
+        <a href="#about" class="btn btn-outline">About Me</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="avatar-circle"><span>SN</span></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I'm a passionate developer who loves crafting beautiful digital experiences. I specialize in building modern, responsive websites that look great and perform even better.</p>
+          <div class="about-stats">
+            <div class="stat"><span>10+</span><p>Projects</p></div>
+            <div class="stat"><span>5+</span><p>Skills</p></div>
+            <div class="stat"><span>100%</span><p>Passion</p></div>
+          </div>
+        </div>
+        <div class="skills">
+          <h3>My Skills</h3>
+          <div class="skill-item">
+            <div class="skill-label"><span>HTML &amp; CSS</span><span>90%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>JavaScript</span><span>75%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>UI Design</span><span>80%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <div class="container">
+      <h2 class="section-title">My Services</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">🎨</div>
+          <h3>UI/UX Design</h3>
+          <p>Stunning, intuitive designs that users love.</p>
+        </div>
+        <div class="card featured">
+          <div class="card-badge">Popular</div>
+          <div class="card-icon">💻</div>
+          <h3>Web Development</h3>
+          <p>Modern, responsive websites built with clean code.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🚀</div>
+          <h3>Performance</h3>
+          <p>Optimized websites that load in a flash.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Me</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <span>📧</span>
+            <div><h4>Email</h4><p>sonu@example.com</p></div>
+          </div>
+          <div class="contact-item">
+            <span>📍</span>
+            <div><h4>Location</h4><p>India</p></div>
+          </div>
+          <div class="contact-item">
+            <span>📞</span>
+            <div><h4>Phone</h4><p>+91 00000 00000</p></div>
+          </div>
+        </div>
+        <form class="contact-form">
+          <div class="form-row">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+          </div>
+          <input type="text" placeholder="Subject" required />
+          <textarea placeholder="Your Message..." rows="5" required></textarea>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2026 <span>Sonu Nale</span>. Crafted with ❤️</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      navbar.style.boxShadow = window.scrollY > 50 ? '0 4px 20px rgba(0,0,0,0.3)' : 'none';
+    });
+  </script>
+
+</body>
+</html>

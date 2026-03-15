@@ -3,137 +3,330 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Portfolio</title>
+  <title>Habit Tracker</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar" id="navbar">
-    <div class="logo">⚡ Sonu</div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Hero -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <p class="hero-sub">👋 Hello, I'm</p>
-      <h1>Sonu Nale</h1>
-      <p class="hero-desc">Developer · Designer · Creator</p>
-      <div class="hero-btns">
-        <a href="#contact" class="btn btn-primary">Hire Me</a>
-        <a href="#about" class="btn btn-outline">About Me</a>
-      </div>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">✅ HabitFlow</div>
+      <div class="header-date" id="headerDate"></div>
     </div>
-    <div class="hero-image">
-      <div class="avatar-circle"><span>SN</span></div>
-    </div>
-  </section>
+  </header>
 
-  <!-- About -->
-  <section class="about" id="about">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>I'm a passionate developer who loves crafting beautiful digital experiences. I specialize in building modern, responsive websites that look great and perform even better.</p>
-          <div class="about-stats">
-            <div class="stat"><span>10+</span><p>Projects</p></div>
-            <div class="stat"><span>5+</span><p>Skills</p></div>
-            <div class="stat"><span>100%</span><p>Passion</p></div>
-          </div>
-        </div>
-        <div class="skills">
-          <h3>My Skills</h3>
-          <div class="skill-item">
-            <div class="skill-label"><span>HTML &amp; CSS</span><span>90%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-label"><span>JavaScript</span><span>75%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-label"><span>UI Design</span><span>80%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
-          </div>
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Summary Bar -->
+    <section class="summary-bar">
+      <div class="summary-card">
+        <span class="summary-icon">📋</span>
+        <div>
+          <p class="summary-label">Total Habits</p>
+          <p class="summary-value" id="totalHabits">0</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="services" id="services">
-    <div class="container">
-      <h2 class="section-title">My Services</h2>
-      <div class="cards">
-        <div class="card">
-          <div class="card-icon">🎨</div>
-          <h3>UI/UX Design</h3>
-          <p>Stunning, intuitive designs that users love.</p>
-        </div>
-        <div class="card featured">
-          <div class="card-badge">Popular</div>
-          <div class="card-icon">💻</div>
-          <h3>Web Development</h3>
-          <p>Modern, responsive websites built with clean code.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🚀</div>
-          <h3>Performance</h3>
-          <p>Optimized websites that load in a flash.</p>
+      <div class="summary-card">
+        <span class="summary-icon">🎯</span>
+        <div>
+          <p class="summary-label">Done Today</p>
+          <p class="summary-value" id="doneToday">0</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact Me</h2>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <div class="contact-item">
-            <span>📧</span>
-            <div><h4>Email</h4><p>sonu@example.com</p></div>
-          </div>
-          <div class="contact-item">
-            <span>📍</span>
-            <div><h4>Location</h4><p>India</p></div>
-          </div>
-          <div class="contact-item">
-            <span>📞</span>
-            <div><h4>Phone</h4><p>+91 00000 00000</p></div>
-          </div>
+      <div class="summary-card">
+        <span class="summary-icon">🔥</span>
+        <div>
+          <p class="summary-label">Best Streak</p>
+          <p class="summary-value" id="bestStreak">0</p>
         </div>
-        <form class="contact-form">
-          <div class="form-row">
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-          </div>
-          <input type="text" placeholder="Subject" required />
-          <textarea placeholder="Your Message..." rows="5" required></textarea>
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
       </div>
-    </div>
-  </section>
+      <div class="summary-card">
+        <span class="summary-icon">💯</span>
+        <div>
+          <p class="summary-label">Completion</p>
+          <p class="summary-value" id="completionRate">0%</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Add Habit Form -->
+    <section class="add-habit-section">
+      <h2 class="section-title">Add New Habit</h2>
+      <form class="add-habit-form" id="addHabitForm">
+        <input
+          type="text"
+          id="habitName"
+          class="habit-input"
+          placeholder="Habit name (e.g. Drink 8 glasses of water)"
+          maxlength="60"
+          required
+        />
+        <select id="habitCategory" class="habit-select">
+          <option value="health">💪 Health</option>
+          <option value="mind">🧠 Mind</option>
+          <option value="productivity">⚡ Productivity</option>
+          <option value="social">🤝 Social</option>
+          <option value="other">⭐ Other</option>
+        </select>
+        <button type="submit" class="btn btn-add">+ Add Habit</button>
+      </form>
+    </section>
+
+    <!-- Habits List -->
+    <section class="habits-section">
+      <div class="habits-header">
+        <h2 class="section-title">My Habits</h2>
+        <div class="filter-tabs">
+          <button class="filter-tab active" data-filter="all">All</button>
+          <button class="filter-tab" data-filter="health">💪 Health</button>
+          <button class="filter-tab" data-filter="mind">🧠 Mind</button>
+          <button class="filter-tab" data-filter="productivity">⚡ Productivity</button>
+          <button class="filter-tab" data-filter="social">🤝 Social</button>
+          <button class="filter-tab" data-filter="other">⭐ Other</button>
+        </div>
+      </div>
+
+      <div id="habitsContainer" class="habits-container">
+        <!-- Habits rendered here -->
+      </div>
+
+      <div id="emptyState" class="empty-state">
+        <div class="empty-icon">🌱</div>
+        <h3>No habits yet</h3>
+        <p>Add your first habit above to start building your best self!</p>
+      </div>
+    </section>
+
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
-    <p>© 2026 <span>Sonu Nale</span>. Crafted with ❤️</p>
+    <p>© 2026 <span>HabitFlow</span> — Build better habits, one day at a time 🚀</p>
   </footer>
 
   <script>
-    window.addEventListener('scroll', () => {
-      const navbar = document.getElementById('navbar');
-      navbar.style.boxShadow = window.scrollY > 50 ? '0 4px 20px rgba(0,0,0,0.3)' : 'none';
+    /* ─── Data Layer ─────────────────────────────────────────────── */
+    const STORAGE_KEY = 'habitflow_habits';
+
+    function loadHabits() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveHabits(habits) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(habits));
+    }
+
+    /* ─── Date Helpers ───────────────────────────────────────────── */
+    function todayKey() {
+      return new Date().toISOString().slice(0, 10); // "YYYY-MM-DD"
+    }
+
+    function last7Days() {
+      const days = [];
+      for (let i = 6; i >= 0; i--) {
+        const d = new Date();
+        d.setDate(d.getDate() - i);
+        days.push(d.toISOString().slice(0, 10));
+      }
+      return days;
+    }
+
+    function dayLabel(isoDate) {
+      const d = new Date(isoDate + 'T00:00:00');
+      return d.toLocaleDateString('en-US', { weekday: 'short' }).slice(0, 2);
+    }
+
+    function formatHeaderDate() {
+      return new Date().toLocaleDateString('en-US', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      });
+    }
+
+    /* ─── Streak Calculation ─────────────────────────────────────── */
+    function calcStreak(habit) {
+      let streak = 0;
+      const d = new Date();
+      while (true) {
+        const key = d.toISOString().slice(0, 10);
+        if (habit.completions[key]) {
+          streak++;
+          d.setDate(d.getDate() - 1);
+        } else {
+          break;
+        }
+      }
+      return streak;
+    }
+
+    function calcLongestStreak(habit) {
+      const dates = Object.keys(habit.completions).filter(k => habit.completions[k]).sort();
+      if (dates.length === 0) return 0;
+      let best = 1, cur = 1;
+      for (let i = 1; i < dates.length; i++) {
+        const prev = new Date(dates[i - 1]);
+        const curr = new Date(dates[i]);
+        const diff = (curr - prev) / 86400000;
+        if (diff === 1) { cur++; best = Math.max(best, cur); }
+        else cur = 1;
+      }
+      return best;
+    }
+
+    /* ─── Category Helpers ───────────────────────────────────────── */
+    const CATEGORY_ICONS = {
+      health: '💪', mind: '🧠', productivity: '⚡', social: '🤝', other: '⭐'
+    };
+
+    /* ─── Render ─────────────────────────────────────────────────── */
+    let currentFilter = 'all';
+
+    function renderHabits() {
+      const habits = loadHabits();
+      const today = todayKey();
+      const days = last7Days();
+      const container = document.getElementById('habitsContainer');
+      const emptyState = document.getElementById('emptyState');
+
+      const filtered = currentFilter === 'all'
+        ? habits
+        : habits.filter(h => h.category === currentFilter);
+
+      container.innerHTML = '';
+
+      if (filtered.length === 0) {
+        emptyState.style.display = 'flex';
+        updateSummary(habits, today);
+        return;
+      }
+      emptyState.style.display = 'none';
+
+      filtered.forEach(habit => {
+        const streak = calcStreak(habit);
+        const doneToday = !!habit.completions[today];
+        const card = document.createElement('div');
+        card.className = 'habit-card' + (doneToday ? ' habit-done' : '');
+        card.dataset.id = habit.id;
+
+        const weeklyCells = days.map(day => {
+          const done = !!habit.completions[day];
+          const isToday = day === today;
+          return `<div class="day-cell ${done ? 'day-done' : ''} ${isToday ? 'day-today' : ''}" title="${day}">${dayLabel(day)}</div>`;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="habit-card-left">
+            <button class="check-btn ${doneToday ? 'checked' : ''}" data-id="${habit.id}" title="${doneToday ? 'Mark incomplete' : 'Mark complete'}">
+              ${doneToday ? '✅' : '⬜'}
+            </button>
+            <div class="habit-info">
+              <div class="habit-name">${escapeHtml(habit.name)}</div>
+              <div class="habit-meta">
+                <span class="habit-category">${CATEGORY_ICONS[habit.category] || '⭐'} ${capitalize(habit.category)}</span>
+                <span class="habit-streak">🔥 ${streak} day streak</span>
+                <span class="habit-added">Added ${new Date(habit.createdAt).toLocaleDateString()}</span>
+              </div>
+            </div>
+          </div>
+          <div class="habit-card-right">
+            <div class="week-track">
+              ${weeklyCells}
+            </div>
+            <button class="delete-btn" data-id="${habit.id}" title="Delete habit">🗑️</button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      updateSummary(habits, today);
+    }
+
+    function updateSummary(habits, today) {
+      const doneToday = habits.filter(h => !!h.completions[today]).length;
+      const allStreaks = habits.map(h => calcLongestStreak(h));
+      const best = allStreaks.length ? Math.max(...allStreaks) : 0;
+      const rate = habits.length ? Math.round((doneToday / habits.length) * 100) : 0;
+
+      document.getElementById('totalHabits').textContent = habits.length;
+      document.getElementById('doneToday').textContent = doneToday;
+      document.getElementById('bestStreak').textContent = best;
+      document.getElementById('completionRate').textContent = rate + '%';
+    }
+
+    /* ─── Actions ────────────────────────────────────────────────── */
+    function addHabit(name, category) {
+      const habits = loadHabits();
+      habits.push({
+        id: Date.now().toString(),
+        name: name.trim(),
+        category,
+        createdAt: new Date().toISOString(),
+        completions: {}
+      });
+      saveHabits(habits);
+      renderHabits();
+    }
+
+    function toggleHabit(id) {
+      const habits = loadHabits();
+      const habit = habits.find(h => h.id === id);
+      if (!habit) return;
+      const today = todayKey();
+      habit.completions[today] = !habit.completions[today];
+      saveHabits(habits);
+      renderHabits();
+    }
+
+    function deleteHabit(id) {
+      if (!confirm('Delete this habit and all its history?')) return;
+      const habits = loadHabits().filter(h => h.id !== id);
+      saveHabits(habits);
+      renderHabits();
+    }
+
+    /* ─── Utils ──────────────────────────────────────────────────── */
+    function escapeHtml(str) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function capitalize(s) {
+      return s.charAt(0).toUpperCase() + s.slice(1);
+    }
+
+    /* ─── Event Listeners ────────────────────────────────────────── */
+    document.getElementById('addHabitForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('habitName').value.trim();
+      const category = document.getElementById('habitCategory').value;
+      if (!name) return;
+      addHabit(name, category);
+      e.target.reset();
     });
+
+    document.getElementById('habitsContainer').addEventListener('click', e => {
+      const checkBtn = e.target.closest('.check-btn');
+      const delBtn = e.target.closest('.delete-btn');
+      if (checkBtn) toggleHabit(checkBtn.dataset.id);
+      if (delBtn) deleteHabit(delBtn.dataset.id);
+    });
+
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentFilter = tab.dataset.filter;
+        renderHabits();
+      });
+    });
+
+    /* ─── Init ───────────────────────────────────────────────────── */
+    document.getElementById('headerDate').textContent = formatHeaderDate();
+    renderHabits();
   </script>
 
 </body>

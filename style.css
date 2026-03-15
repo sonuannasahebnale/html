@@ -1,0 +1,423 @@
+/* ─── Reset & Base ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0f1117;
+  --bg2: #1a1d2e;
+  --bg3: #252840;
+  --accent: #6c63ff;
+  --accent2: #ff6584;
+  --green: #22c55e;
+  --green-dim: #166534;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --border: #2e3152;
+  --radius: 14px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.35);
+  --transition: 0.2s ease;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ─── Header ─────────────────────────────────────────────────── */
+.header {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+}
+
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ─── Main ───────────────────────────────────────────────────── */
+.main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ─── Summary Bar ────────────────────────────────────────────── */
+.summary-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.summary-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform var(--transition);
+}
+
+.summary-card:hover { transform: translateY(-2px); }
+
+.summary-icon { font-size: 1.8rem; }
+
+.summary-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.summary-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+/* ─── Section Title ──────────────────────────────────────────── */
+.section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+/* ─── Add Habit ──────────────────────────────────────────────── */
+.add-habit-section {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.add-habit-form {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.habit-input {
+  flex: 1 1 260px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  color: var(--text);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.habit-input:focus { border-color: var(--accent); }
+.habit-input::placeholder { color: var(--text-muted); }
+
+.habit-select {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  color: var(--text);
+  font-size: 0.9rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+
+.habit-select:focus { border-color: var(--accent); }
+
+.btn {
+  padding: 0.65rem 1.4rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.btn:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.btn-add {
+  background: linear-gradient(135deg, var(--accent), #8b5cf6);
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* ─── Habits Section ─────────────────────────────────────────── */
+.habits-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.habits-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.filter-tab {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.filter-tab:hover { border-color: var(--accent); color: var(--text); }
+
+.filter-tab.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* ─── Habit Card ─────────────────────────────────────────────── */
+.habits-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.habit-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.habit-card:hover { transform: translateY(-1px); border-color: var(--accent); }
+
+.habit-card.habit-done {
+  border-color: var(--green);
+  background: linear-gradient(135deg, var(--bg2), #0d2615);
+}
+
+.habit-card-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.check-btn {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform var(--transition);
+}
+
+.check-btn:hover { transform: scale(1.2); }
+
+.habit-info { min-width: 0; }
+
+.habit-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.habit-card.habit-done .habit-name {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.habit-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.2rem;
+}
+
+.habit-category,
+.habit-streak,
+.habit-added {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--bg3);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.habit-streak { color: #fb923c; }
+
+/* ─── Habit Card Right ───────────────────────────────────────── */
+.habit-card-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+/* ─── Week Tracker ───────────────────────────────────────────── */
+.week-track {
+  display: flex;
+  gap: 4px;
+}
+
+.day-cell {
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.day-cell.day-done {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+
+.day-cell.day-today {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.day-cell.day-today.day-done {
+  border-color: var(--green);
+  color: #fff;
+}
+
+/* ─── Delete Button ──────────────────────────────────────────── */
+.delete-btn {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity var(--transition), transform var(--transition);
+  flex-shrink: 0;
+}
+
+.delete-btn:hover { opacity: 1; transform: scale(1.15); }
+
+/* ─── Empty State ────────────────────────────────────────────── */
+.empty-state {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--bg2);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  gap: 0.5rem;
+}
+
+.empty-icon { font-size: 3rem; }
+.empty-state h3 { font-size: 1.2rem; color: var(--text); }
+.empty-state p { color: var(--text-muted); font-size: 0.9rem; }
+
+/* ─── Footer ─────────────────────────────────────────────────── */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.footer span {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 720px) {
+  .summary-bar { grid-template-columns: repeat(2, 1fr); }
+
+  .habit-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .habit-card-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .week-track { gap: 3px; }
+
+  .day-cell { width: 30px; height: 30px; font-size: 0.6rem; }
+}
+
+@media (max-width: 480px) {
+  .summary-bar { grid-template-columns: repeat(2, 1fr); }
+  .header-inner { flex-direction: column; height: auto; padding: 0.75rem 0; gap: 0.2rem; }
+  .main { padding: 1rem 1rem 3rem; gap: 1.25rem; }
+  .add-habit-form { flex-direction: column; }
+  .habit-select, .btn-add { width: 100%; }
+  .week-track { gap: 2px; }
+  .day-cell { width: 26px; height: 26px; font-size: 0.55rem; }
+}
